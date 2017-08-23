@@ -1,4 +1,12 @@
-b). Para dar respuesta a la pregunta se analizará la ecuación diferencial asociada al incremento de la población infectada, ya que
+*** PARA COMPILAR EL PROGRAMA DEL PUNTO 2c (Tambor_c.cpp) ESCRIBIR:
+
+g++ Tambor_c.cpp -std=c++11
+
+lo cual compila c++ en la versión 11 y permite utilizar la función "std::to_string()" que convierte de double a string. ***
+
+
+
+Punto 1, parte b). Para dar respuesta a la pregunta se analizará la ecuación diferencial asociada al incremento de la población infectada, ya que
     esta ecuación contiene la información relacionada a la propagación de la epidemia.
 
 	di/dt= Beta*s*i - gamma*i
