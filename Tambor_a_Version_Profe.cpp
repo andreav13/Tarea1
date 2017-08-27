@@ -4,11 +4,19 @@
 
 using namespace std;
 
+
+// r²*R''+r*R'+lambda²r²*R=0  ; x1=R  x2=R'  f1=x2 f2= -(1/r)*x2 - lambda²x1
+// C.I => x1(0)=1 ; x2(0)= 0
+
+const double lambda=1;
+
+
 double f1(double x1,double x2,double r){return x2;}
 
 double f2(double lambda,double x1,double x2,double r){
   return -( (1/r)*x2 + pow(lambda,2)*x1 );
 }
+
 
 void UnPasoDeRungeKuta4(double lambda,double & x1,double & x2, double & r,double dr){
   
@@ -21,22 +29,17 @@ void UnPasoDeRungeKuta4(double lambda,double & x1,double & x2, double & r,double
   r+=dr; x1+=(dx11+2*dx21+2*dx31+dx41)/6;    x2+=(dx12+2*dx22+2*dx32+dx42)/6;
 }
 
-double f(double  lambda){  
-  double x1=1,x2=0;
-  double r;  const double dr=0.01;
-  for (r=0.01;r<=5;){
-    UnPasoDeRungeKuta4(lambda,x1,x2,r,dr);
-  }
-  return x1;
-}
 
 
 int main(void){
-  double lambda,R; const double dlambda=0.01;
+  double x1=1,x2=0,r;
+  double dr=0.01;
+  for(r=0.01;r<10;)
+    {
+      cout<<r<<"  "<<x1<<endl ;
+      UnPasoDeRungeKuta4(lambda,x1,x2,r,dr);
+
+    }
   
-  for (lambda=0.0;lambda<80.0;lambda+=dlambda ){
-   R=f(lambda);
-   cout<<lambda<<"  "<<R<<endl;
-  }
-  return 0;
+   return 0;
 }
